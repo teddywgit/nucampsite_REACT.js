@@ -28,7 +28,7 @@ class Main extends Component {
                 <Header />
                 <Switch>
                     <Route path='/home' component={HomePage} />
-                    <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites} />} />
+                  <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites} />} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
@@ -36,5 +36,5 @@ class Main extends Component {
         );
 
     };
-}
-export default Main;
+}   
+    export default Main;
