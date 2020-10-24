@@ -4,12 +4,14 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent'; 
 import Directory from './DirectoryComponent';
-import { CAMPSITES } from '../shared/campsites';
+import CampsiteInfo from './CampsiteInfoComponent';
 import Contact from './ContactComponent';
+import About from './AboutComponent';
+import { CAMPSITES } from '../shared/campsites';
 import { COMMENTS } from '../shared/comments';
 import { PARTNERS } from '../shared/partners';
 import { PROMOTIONS } from '../shared/promotions';
-import CampsiteInfo from './CampsiteInfoComponent';
+
 
 class Main extends Component {
 
@@ -50,6 +52,7 @@ class Main extends Component {
                 <Switch>
                     <Route path='/home' component={HomePage} />
                     <Route exact path='/contactus' component={Contact} />
+                    <Route exact path ='/aboutus' render={ () =>  <About partners={this.state.partners} />} />
                     <Route path='/directory/:campsiteId' component={CampsiteWithId} />
                   <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites} />} />
                     <Redirect to='/home' />
