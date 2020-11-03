@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, CardImg, CardText, CardTitle, CardBody, Breadcrumb, BreadcrumbItem, Label, Modal, ModalHeader } from 'reactstrap';
+import { Button, Card, CardImg, CardText, CardTitle, CardBody, Breadcrumb, BreadcrumbItem, Label, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm , Errors } from 'react-redux-form';
 
@@ -34,11 +34,12 @@ class CommentForm extends Component {
         return ( 
             <div>
                 <Button outline onClick={this.toggleModal}><i className="fa fa-pencil fa-lg"/> Submit Comment</Button>
-
+                
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                 <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+                <ModalBody>
                     <LocalForm onSubmit={values => this.handleComment(values)} > 
-                        <div className="form-group m-3">
+                        <div className="form-group">
                         <Label htmlFor="rating">Rating</Label>
                         <Control.select
                             model=".rating"
@@ -52,7 +53,7 @@ class CommentForm extends Component {
                             <option>5</option>
                         </Control.select>
                         </div>
-                        <div className="form-group m-3">
+                        <div className="form-group">
                         <Label htmlFor="author">Your Name</Label>
                         <Control.text
                             model=".author"
@@ -76,7 +77,7 @@ class CommentForm extends Component {
                                 maxLength: 'Must be 15 characters or less'
                             }} />
                         </div>
-                        <div className="form-group m-3">
+                        <div className="form-group">
                         <Label htmlFor="text">Comment</Label>
                         <Control.textarea
                             model=".text"
@@ -88,11 +89,12 @@ class CommentForm extends Component {
                         </Control.textarea>
                         </div>
 
-                        <Button type="submit" color="primary" className="m-3">
+                        <Button type="submit" color="primary">
                         Submit
                         </Button>
 
                     </LocalForm>
+                    </ModalBody>
                 </Modal>
             </div>
 
