@@ -14,7 +14,25 @@ h1, h2, h3, .card-body>.card-title {
 h2 {
   color: #3046C5;
 }
+.page-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
 
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: 300ms ease-out;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: 300ms ease-in;
+}
 .card-img-overlay .card-title {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
